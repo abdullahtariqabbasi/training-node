@@ -1,11 +1,10 @@
-const { body } = require('express-validator');
+// utils/validators.js
+class UserValidator {
+  static userValidationRules(body) {
+    return [
+      body('name').notEmpty().withMessage('Name is required'),
+    ];
+  }
+}
 
-const userValidationRules = () => {
-  return [
-    body('name').notEmpty().withMessage('Name is required'),
-  ];
-};
-
-module.exports = {
-  userValidationRules
-};
+export default UserValidator;
